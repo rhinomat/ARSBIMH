@@ -22,9 +22,10 @@ def task_menu():
         print(Fore.BLUE + "1. Information Sheet Retrieval" + Style.RESET_ALL)
         print(Fore.BLUE + "2. Sanitization of Data Sheet" + Style.RESET_ALL)
         print(Fore.BLUE + "3. Filter out locations" + Style.RESET_ALL)
-        print(Fore.BLUE + "4. Spreadsheet Transformation" + Style.RESET_ALL)
-        print(Fore.BLUE + "5. Automatically do the process with default values" + Style.RESET_ALL)
-        print(Fore.RED + "6. Quit." + Style.RESET_ALL)
+        print(Fore.BLUE + "4. Filter out undesirable business types" + Style.RESET_ALL)
+        print(Fore.BLUE + "5. Spreadsheet Transformation" + Style.RESET_ALL)
+        print(Fore.BLUE + "6. Automatically do the process with default values" + Style.RESET_ALL)
+        print(Fore.RED + "7. Quit." + Style.RESET_ALL)
         try:
             task = int(input("Please select a task: "))
         except ValueError:
@@ -38,14 +39,16 @@ def task_menu():
         elif task == 3:
             location_filter()
         elif task == 4:
-            spreadsheet_transform()
+            status_filter()
         elif task == 5:
+            spreadsheet_transform()
+        elif task == 6:
             oregon_job_list_retrieval()
             trimColumns()
             location_filter()
             status_filter()
             spreadsheet_transform()
-        elif task == 6:
+        elif task == 7:
             print(Fore.GREEN + "Thank you for using this application" + Style.RESET_ALL)
             task = -1
 

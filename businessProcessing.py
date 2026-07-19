@@ -19,7 +19,7 @@ def trimColumns():
         #print(file_path[-4:])
         if file_path.endswith('.csv'):
             df = pd.read_csv(file_path)
-            df = df.drop(columns=["Registry Number", "Registry Date", "Anniversary Date"])
+            df = df.drop(columns=["Registry Number", "Registry Date", "Anniversary Date", "PPB State", "PPB CityZip"])
             output_path = os.path.splitext(file_path)[0] + '_sanitized.csv'
             df.to_csv(output_path, index=False)
             print(output_path)
