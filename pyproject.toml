@@ -1,0 +1,13 @@
+[project]
+name = "arsbimh"
+version = "0.1.0"
+description = "The ARSBIMH is the Automated Retrieval System for Business Information Meant for Hiring"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "colorama>=0.4.6",
+    "pandas>=3.0.3",
+    "playwright>=1.61.0",
+    "pytest>=9.1.1",
+    "pytest-playwright>=0.8.0",
+]
