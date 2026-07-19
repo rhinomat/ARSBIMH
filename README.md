@@ -10,3 +10,8 @@ This project will help with filtering out companies in Oregon that would be geog
 * Pandas (For data manipulation)
 * odfpy (For interfacing with the Spreadsheet (Libreoffice Calc uses Open Document Spreadsheets))
 ## How to Build
+1. `uv sync` will add all the needed packages into the environment
+2. please use command `playwright install` on your system to initiate and 
+install the needed playwright packages
+3. you can use `uv main.py` to run the application :)
+4. Please watch for prompts

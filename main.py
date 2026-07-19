@@ -1,4 +1,5 @@
 from colorama import Fore, Style
+from retrievalScript import oregon_job_list_retrieval
 def main():
     print(Fore.GREEN + "Welcome to the ARSBIMH" + Style.RESET_ALL)
     print(Fore.GREEN + "Automated Retrieval System for Business Information Meant for Hiring" + Style.RESET_ALL)
@@ -11,8 +12,37 @@ def main():
     print(Fore.BLUE + "   The preferable application I am doing spreadsheets in is Libreoffice Calc to replace Excel" + Style.RESET_ALL)
     print()
     print()
+    task_menu()
     
-
+def task_menu():
+    task = 0
+    while task >= 0:
+        print(Fore.GREEN + "List of Tasks" + Style.RESET_ALL)
+        print(Fore.BLUE + "1. Information Sheet Retrieval" + Style.RESET_ALL)
+        print(Fore.BLUE + "2. Sanitization of Data Sheet" + Style.RESET_ALL)
+        print(Fore.BLUE + "3. Filter out locations" + Style.RESET_ALL)
+        print(Fore.BLUE + "4. Spreadsheet Transformation" + Style.RESET_ALL)
+        print(Fore.BLUE + "5. Automatically do the process with default values" + Style.RESET_ALL)
+        print(Fore.RED + "6. Quit." + Style.RESET_ALL)
+        try:
+            task = int(input("Please select a task: "))
+        except ValueError:
+            print(Fore.RED + "Invalid Input: Please make your selection an integer" + Style.RESET_ALL)
+            task = 0
+            continue
+        if task == 1:
+            oregon_job_list_retrieval()
+        elif task == 2:
+            return
+        elif task == 3:
+            return
+        elif task == 4:
+            return
+        elif task == 5:
+            return
+        elif task == 6:
+            print(Fore.GREEN + "Thank you for using this application" + Style.RESET_ALL)
+            task = -1
 
 if __name__ == "__main__":
     main()
