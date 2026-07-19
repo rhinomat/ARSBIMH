@@ -11,7 +11,7 @@ def oregon_job_list_retrieval():
     file_folder = "businessInfo"
     with sync_playwright() as p:
         print(Fore.BLUE + "Launching new instance of firefox for interaction" + Style.RESET_ALL)
-        browser = p.firefox.launch(headless=False)
+        browser = p.firefox.launch(headless=True)
         context = browser.new_context()
         page = context.new_page()
         print(Fore.BLUE + "Transporting to needed site" + Style.RESET_ALL)
