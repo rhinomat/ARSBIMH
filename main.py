@@ -1,6 +1,6 @@
 from colorama import Fore, Style
 from retrievalScript import oregon_job_list_retrieval
-from businessProcessing import trimColumns, location_filter, spreadsheet_transform
+from businessProcessing import trimColumns, location_filter, status_filter, spreadsheet_transform
 def main():
     print(Fore.GREEN + "Welcome to the ARSBIMH" + Style.RESET_ALL)
     print(Fore.GREEN + "Automated Retrieval System for Business Information Meant for Hiring" + Style.RESET_ALL)
@@ -43,6 +43,7 @@ def task_menu():
             oregon_job_list_retrieval()
             trimColumns()
             location_filter()
+            status_filter()
             spreadsheet_transform()
         elif task == 6:
             print(Fore.GREEN + "Thank you for using this application" + Style.RESET_ALL)
