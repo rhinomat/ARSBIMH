@@ -4,14 +4,18 @@
     * removes unwanted fields from the retrieved business CSV.
     * Trims down CSV for needed area range 
 '''
-
+import subprocess
 import os
 import pandas as pd
+import shutil
 
 folder_area = "businessInfo"
 
 active_directory = os.path.join(os.getcwd(), folder_area)
 
+def dataset_operation(column_flags : list[int], location_flags : list[int], status_flags : list[int], spreadsheet_flags : list[int]) -> bool:
+    global active_directory
+    
 def trimColumns():
     global folder_area, active_directory
     for filename in os.listdir(active_directory):
@@ -50,11 +54,20 @@ def status_filter():
             
 def spreadsheet_transform():
     global folder_area, active_directory
-    for filename in os.listdir(active_directory):
-        file_path = os.path.join(folder_area, filename)
-        if file_path.endswith("_clean.csv"):
-            df = pd.read_csv(file_path)
-            output_path = os.path.splitext(file_path)[0] + '_spreadsheet.ods'
-            with pd.ExcelWriter(output_path, engine="odf") as writer:
-                df.to_excel(writer, sheet_name="Sheet1", index=False)
-            print(output_path)
+    if shutil.which("soffice") is not None:
+        for filename in os.listdir(active_directory):
+            if filename.endswith("_clean.csv"):
+                file_path = os.path.join(folder_area, filename)
+                subprocess.run([
+                    "soffice", "--headless", "--convert-to", "ods", file_path, "--outdir", active_directory
+                ], check=True)
+                print(f"converted {file_path} to .ods via LibreOffice CLI")
+    else:
+        for filename in os.listdir(active_directory):
+            file_path = os.path.join(folder_area, filename)
+            if file_path.endswith("_clean.csv"):
+                df = pd.read_csv(file_path)
+                output_path = os.path.splitext(file_path)[0] + '_spreadsheet.ods'
+                with pd.ExcelWriter(output_path, engine="odf") as writer:
+                    df.to_excel(writer, sheet_name="Sheet1", index=False)
+                print(output_path)

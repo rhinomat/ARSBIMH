@@ -14,6 +14,7 @@ def main():
     print()
     print()
     task_menu()
+    print(Fore.GREEN + "Thank you for using this application" + Style.RESET_ALL)
     
 def task_menu():
     task = 0
@@ -48,9 +49,10 @@ def task_menu():
             location_filter()
             status_filter()
             spreadsheet_transform()
+            return
         elif task == 7:
-            print(Fore.GREEN + "Thank you for using this application" + Style.RESET_ALL)
             task = -1
+    return
 
 if __name__ == "__main__":
     main()
