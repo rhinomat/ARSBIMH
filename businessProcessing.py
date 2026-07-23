@@ -15,7 +15,24 @@ active_directory = os.path.join(os.getcwd(), folder_area)
 
 def dataset_operation(column_flags : list[int], location_flags : list[int], status_flags : list[int], spreadsheet_flags : list[int]) -> bool:
     global active_directory
-    
+    for filename in os.listdir(active_directory):
+        if filename.endswith(".csv"):
+            print(f"{filename} FOUND IN DIRECTORY {active_directory}")
+            print("OPERATION TIME")
+            df = pd.read_csv(filename)
+            print("FILTERING FIELDS")
+            for flag in column_flags:
+                pass
+            print("FILTERING LOCATIONS")
+            for flag in location_flags:
+                pass
+            print("FILTERING BUSINESS TYPES")
+            for flag in status_flags:
+                pass
+            print("DETERMINING TYPE OF SPREADSHEET")
+            for flag in spreadsheet_flags:
+                pass
+
 def trimColumns():
     global folder_area, active_directory
     for filename in os.listdir(active_directory):

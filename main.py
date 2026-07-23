@@ -13,7 +13,8 @@ def main():
     print(Fore.BLUE + "   The preferable application I am doing spreadsheets in is Libreoffice Calc to replace Excel" + Style.RESET_ALL)
     print()
     print()
-    task_menu()
+    #task_menu()
+    
     print(Fore.GREEN + "Thank you for using this application" + Style.RESET_ALL)
     
 def task_menu():
